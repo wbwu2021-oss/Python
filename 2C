@@ -1,1 +1,29 @@
-
+var1 = 10
+# Check the memory address of var1 by using the following statement
+print(hex(id(var1)))
+var1 = 100
+# Check the memory address of var1 again
+0x7ffef5b560d8
+var2 = 100
+# Write your print statement
+# Check the memory address of var2. Did the Python interpreter assign a new memory address or reuse the existing one?
+0x7ffef5b560d8
+str1 = "Hello"
+str2 = "World"
+print(hex(id(str1[0]))
+0x7ffef64f5a48
+hex(id(str1[1])))
+0x7ffef60659b8
+varx="dog"
+vary="cat"
+x+y=dog+cat
+"the " + x + " chases the " + y
+the + dog + chases the + cat
+x * 4
+d0gdogdogdog
+x=50, x=x+1
+a. hello = "hello"   print("hello")
+b. _var = 100   var1=100
+c. !var_1 = 200  var1=200
+d. print = "print me"  print=("me")
+e. False = 0  False==0
