@@ -18,3 +18,7 @@ my_list_ten=[11,12,13,14,15,16,17,18,19,10]
 del my_list_ten[11,10]
 #f==============================================
 my_list_ten=[11,12,13,14,15,16,17,18,19,10]
+
+challenge
+All the question is too hard for me, cann't understand them even used the Chartgpt to help me.
+Need more time to verify all the answers.
