@@ -1,5 +1,5 @@
 # question 1
-```
+```python 
 class Stack:
     def __init__(self):
         self.__stk = []
