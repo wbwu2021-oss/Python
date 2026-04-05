@@ -1,7 +1,6 @@
+# hiding 2 or 3 letters and check the answer
+
 ```python
-"""
-hiding 2 or 3 letters and check the answer
-"""
 import random
 def mask_random_letters(word):
   word_list=list(word)
