@@ -29,6 +29,13 @@ while slice>0
    slices=slices-1
    print("please try again")
 
+if __name__=="__main__":
+  while True:
+    play_game()
+    if input (play again?(y/n):").lower()!="y":
+      print("Thanks for playing")
+    break
+
 
 
 
