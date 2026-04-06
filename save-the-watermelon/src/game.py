@@ -20,7 +20,7 @@ def play_game():
     print("-" * 30)
 
   print("choose a theme:")
-  for key in Themes.items():
+  for key, value in Themes.items():
     print(f"{key}.{value[0]}")
 
   choice=input("enter number(1-3):")
@@ -40,7 +40,7 @@ default setting
 """
 guess the letter
 """
-while slice>0 and "_" in display_list:
+while slices >0 and "_" in display_list:
     print(f"\nword:{''.join(display_list)}")
 
     guess = get_valid_input(guessed_letters)
