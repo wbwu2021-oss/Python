@@ -32,9 +32,9 @@ while slice>0
 if __name__=="__main__":
   while True:
     play_game()
-    if input (play again?(y/n):").lower()!="y":
+    if input ("play again?(y/n):").lower()!="y":
       print("Thanks for playing")
-    break
+      break
 
 
 
