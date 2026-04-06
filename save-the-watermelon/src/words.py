@@ -1,18 +1,19 @@
 ```python
 import random
+import os
+"""loading words from the data/words.txt
 """
-Word list with different themes
-"""
-# define the word list with different themes
-Themes={"1":("animals", ["tiger", "zebra", "rabbit", "wolf","panda"]),
-        "2":("food", ["bread", "pizza", "burger", "noodle"]),
-        "3":("sport", ["soccer", "tennis", "bedminton", "surfing"，“skate"]}
+def load_words():
+        themes={}
+        base_path=os.path.dirname(__file__)
+        file_path=os.path.join(base_path,'  ', 'data', 'word.txt')
 
-def get_world_from_theme(choice):
-"""
-select a random word with a theme
-"""
-if choice in Themes:
-    return random.choice(Themes[choice][1])
-return None
-```
+try:
+        with open(file_path, 'r')as f:
+                for line in f:
+                        theme, word=line, strip(),split(',')
+                        if theme not in [theme]=[]
+                        themes[theme].append(word)
+return themes.
+
+
