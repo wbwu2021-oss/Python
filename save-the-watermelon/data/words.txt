@@ -8,7 +8,7 @@ food, burger
 food, noodle
 sport, soccer
 sport, tennis
-sport, bedminton
+sport, badminton
 sport, surfing
 sport, skate
 
