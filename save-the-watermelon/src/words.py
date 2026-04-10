@@ -2,7 +2,7 @@
 themes={}
 
 base_path=os.path.dirname(__file__)
-file_path=os.path.join(base_path,'  ', 'data', 'word.txt')
+file_path=os.path.join(base_path, 'data', 'word.txt')
 
 if os.path.exists(file_path):
      with open(file_path, 'r')as f:
