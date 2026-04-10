@@ -16,7 +16,7 @@ if os.path.exists(file_path):
                 themes[theme]=[]
             themes[theme].append(word)
                  
- return themes.
+ return themes
 
 
 Themes = load_words()
