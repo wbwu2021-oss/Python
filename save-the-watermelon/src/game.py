@@ -1,68 +1,86 @@
-```python
 """
 import the themes from src.words and import the hiding, checking coding from src.logic
 """
 from src.words import Themes, get_word_from_theme
-from src.logic import mask_random_letters, check_guess
+from src.logic import mask_random_letters, check_guess, is_word_complete
+
 def get_valid_input(guessed_letters):
   while True:
-    guess=input("guess a missing letter:").upper()
+    guess=input("guess a missing letter:").strip().lower()
     if len(guess)!=1 or not guess.isalpha():
-      print("invalid input!please enter a single letter")
+        print("invalid input!please enter a single letter")
     elif guess in guessed_letters:
-      print(f"You already guessed '{guess}'. Try a different one!")
+        print(f"You already guessed '{guess}'. Try a different one!")
     else:
-      return guess
+        return guess
 
+
+def display_game_status(display_list,slices,guessed_letters):
+    print("\nword:"," ".join(display_list))
+    print("Watermelon slices left:", slices)
+    print("guessed letters:"," ".join(guessed_letters) if guessed_letters else "None")
 
 def play_game():
-  print("\nWELCOME TO SAVE THE WATERMELON!")
+    print("\nWELCOME TO SAVE THE WATERMELON!")
     print("-" * 30)
 
-  print("choose a theme:")
-  for key, value in Themes.items():
-    print(f"{key}.{value[0]}")
+    if not Themes:
+        print("the words are not available")
+        return
 
-  choice=input("enter number(1-3):")
-  secret_word=get_word_from_theme(choice)
 
-  if not secret_word:
+    print("choose a theme:")
+    theme_names=list(Themes.keys())
+
+    for i, theme in enumerate (theme_names,start=1):
+        print(f"{i}.{theme.title()}")
+
+    choice=input("enter number(1-3):").strip()
+    secret_word=get_word_from_theme(choice)
+
+    if not secret_word:
         print("Invalid choice. Selecting 'Animals' by default.")
         secret_word = get_word_from_theme("1")
 
-"""
-default setting
-"""
-  display_list, hidden_indices=mask_random_letters(secret_word)
-  slices=6
-  guessed_letters = set()
 
-"""
-guess the letter
-"""
-while slices >0 and "_" in display_list:
-    print(f"\nword:{''.join(display_list)}")
+# default setting
 
-    guess = get_valid_input(guessed_letters)
-    guessed_letters.add(guess)
+    display_list, hidden_indices=mask_random_letters(secret_word)
+    slices=6
+    guessed_letters = []
 
-    if check_guess(guess, secret_word, display_list, hidden_indices):
-        print("good job")
+# guess the letter
+
+    while slices >0 and not is_word_complete(display_list):
+        display_game_status(display_list,slices,guessed_letters)
+
+        guess = get_valid_input(guessed_letters)
+        guessed_letters.append(guess)
+
+        if check_guess(guess, secret_word, display_list, hidden_indices):
+            print("good job")
+        else:
+            slices=slices-1
+            print("please try again")
+
+    print("\nFinal word:"," ".join(display_list))
+    if is_word_complete(display_list):
+        print("win")
     else:
-        slices=slices-1
-        print("please try again")
+        print("lose")
 
-if "_" not in display_list:
-        print(f"\nVICTORY! You saved the watermelon! Word: {secret_word}")
-    else:
-        print(f"\nGAME OVER! The melon was sliced. The word was: {secret_word}")
 
+
+def main():
+    while True:
+        play_game()
+        again=input("\n Do you want to replay? (Y/N):").strip().upper()
+
+        if again!="Y":
+            print("welcome back!")
+            break
 
 if __name__=="__main__":
-  while True:
-    play_game()
-    if input ("play again?(y/n):").lower()!="y":
-      print("Thanks for playing")
-      break
+  main()
 
 
