@@ -18,7 +18,7 @@ def mask_random_letters(word):
 
   return display_list, hidden_indices
 
-def check-guess(guess, secret_word, displau_list, hidden_indices):
+def check_guess(guess, secret_word, displau_list, hidden_indices):
      found=False
 
     for i in hidden_indices:
